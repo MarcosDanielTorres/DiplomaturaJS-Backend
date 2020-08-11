@@ -8,7 +8,7 @@ const memeSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    picture: {
+    img: {
       type: Buffer,
     },
     category: {
@@ -37,6 +37,6 @@ memeSchema.methods.toJSON = function () {
   return memeObject;
 };
 
-const Meme = mongoose.model('Meme', memadeSchema);
+const Meme = mongoose.model('Meme', memeSchema);
 
 export default Meme;
