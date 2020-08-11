@@ -1,6 +1,6 @@
 import Meme from '../models/meme';
 
-const getMeme= (req, res) => {
+const getMeme = (req, res) => {
   res.send('Estoy en home babyyy of meme ofc');
 };
 
@@ -15,13 +15,13 @@ const getMemeByID = async (req, res) => {
 };
 
 const getAllMeme = async (req, res) => {
-    try {
-      const meme = await Meme.find();
-      res.status(400).send(meme);
-    } catch (e) {
-      res.status(404).send({ error: 'User not found.' });
-    }
-  };
+  try {
+    const meme = await Meme.find();
+    res.status(400).send(meme);
+  } catch (e) {
+    res.status(404).send({ error: 'User not found.' });
+  }
+};
 
 const postMeme = async (req, res) => {
   const meme = new Meme(req.body);
@@ -34,8 +34,15 @@ const postMeme = async (req, res) => {
   }
 };
 
-const deleteUser = async (req, res) => {};
+const deleteMeme = async (req, res) => {};
 
-const updateUser = async (req, res) => {};
+const updateMeme = async (req, res) => {};
 
-export default { getMeme, postMeme, deleteUser, updateUser, getMemeByID, getAllMeme };
+export default {
+  getMeme,
+  postMeme,
+  deleteMeme,
+  updateMeme,
+  getMemeByID,
+  getAllMeme,
+};
