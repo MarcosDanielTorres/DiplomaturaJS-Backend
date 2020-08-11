@@ -39,12 +39,21 @@ const memeSchema = new mongoose.Schema(
     raiting: {
       type: Number,
       default: 0,
+      validate(value) {
+        return value >= 0;
+      },
     },
   },
   {
     timestamps: true,
   }
 );
+
+memeSchema.virtual('comments', {
+  ref: 'Comment',
+  localField: '_id',
+  foreignField: 'meme',
+});
 
 const Meme = mongoose.model('Meme', memeSchema);
 

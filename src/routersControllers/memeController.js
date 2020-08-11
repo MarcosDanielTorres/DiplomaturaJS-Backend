@@ -16,7 +16,7 @@ const getMemeByID = async (req, res) => {
     const meme = await Meme.findById(req.params.id);
     res.status(400).send(meme);
   } catch (e) {
-    res.status(404).send({ error: 'User not found.' });
+    res.status(404).send({ error: 'Meme not found.' });
   }
 };
 
@@ -25,11 +25,16 @@ const getAllMeme = async (req, res) => {
     const meme = await Meme.find();
     res.status(400).send(meme);
   } catch (e) {
-    res.status(404).send({ error: 'User not found.' });
+    res.status(404).send({ error: 'Meme not found.' });
   }
 };
 
 const createMeme = async (req, res) => {
+  /*
+  const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
+  req.user.avatar = buffer
+  */
+
   const meme = new Meme(req.body);
   try {
     await meme.save();
