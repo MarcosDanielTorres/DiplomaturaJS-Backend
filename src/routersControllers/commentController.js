@@ -11,9 +11,13 @@ const getComments = async (req, res) => {
 const getCommentsFromUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
-    user.populate();
-    //TODOOOOOO
-    res.status(200).send(user);
+    await user
+      .populate({
+        path: 'comments',
+      })
+      .execPopulate();
+
+    res.status(200).send(user.comments);
   } catch (e) {
     res.status(404).send({ error: 'User not found.' });
   }
@@ -22,7 +26,6 @@ const getCommentsFromUser = async (req, res) => {
 const createComment = async (req, res) => {
   //pasarle el usuario y el meme al que está asociado
   //:userID :memeID
-
   try {
     const user = await User.findById(req.params.userID);
     const meme = await Meme.findById(req.params.memeID);
@@ -32,6 +35,8 @@ const createComment = async (req, res) => {
       owner: user._id,
       meme: meme._id,
     });
+
+    await comment.save();
 
     res.status(201).send({ comment });
   } catch (e) {
