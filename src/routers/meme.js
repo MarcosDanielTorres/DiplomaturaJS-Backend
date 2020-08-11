@@ -1,8 +1,13 @@
-import express from "express";
+import express from 'express';
+import memeController from '../routersControllers/memeController';
 const router = new express.Router();
 
-router.get("/meme", (req, res) => {
-  res.send("Estoy en home babyyy of meme ofc");
-});
+router
+  .route('/')
+  .get(memeController.getMeme)
+  .post(memeController.postMeme)
+  .get(memeController.getAllMeme);
+
+router.route('/:id').get(memeController.getMemeByID);
 
 export default router;
