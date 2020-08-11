@@ -30,16 +30,6 @@ const memeSchema = new mongoose.Schema(
   }
 );
 
-memeSchema.methods.toJSON = function () {
-  const meme = this;
-  const memeObject = meme.toObject();
-
-  delete memeObject.description;
-  delete memeObject.picture;
-
-  return memeObject;
-};
-
 const Meme = mongoose.model('Meme', memeSchema);
 
 export default Meme;
