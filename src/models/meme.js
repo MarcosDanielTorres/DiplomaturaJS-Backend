@@ -16,10 +16,13 @@ const memeSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    description: {
-      type: String,
-      required: true,
-      trim: true,
+    comments_counter: {
+      type: Number,
+      default: 0,
+    },
+    raiting: {
+      type: Number,
+      default: 0,
     },
   },
   {

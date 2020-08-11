@@ -34,7 +34,9 @@ const createMeme = async (req, res) => {
   }
 };
 
-const deleteMemeByID = async (req, res) => {};
+const deleteMemeByID = async (req, res) => {
+  //TODO: lograr que cuando se borra un meme, también se borren sus comentarios
+};
 
 const updateMemeByID = async (req, res) => {};
 
