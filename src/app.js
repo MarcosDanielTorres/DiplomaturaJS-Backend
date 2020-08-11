@@ -10,9 +10,8 @@ const port = 4000;
 app.use(express.json());
 
 app.use('/users', userRouter);
-
-app.use(commentRouter);
-app.use(memeRouter);
+app.use('/comments', commentRouter);
+app.use('/memes', memeRouter);
 
 app.get('/', async (req, res) => {
   res.send({ message: 'im at home / ' });
