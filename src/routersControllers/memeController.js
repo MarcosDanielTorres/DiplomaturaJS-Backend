@@ -2,6 +2,12 @@ import Meme from '../models/meme';
 
 const getMeme = (req, res) => {
   res.send('Estoy en home babyyy of meme ofc');
+  // TODO: Hacer (en el futuro) que retorne los memes de un usuario (ya autenticado o, por ahora, por ID)
+};
+
+const getMemes = async (req, res) => {
+  const memes = await Meme.find();
+  res.status(200).send(memes);
 };
 
 // for debugging
@@ -41,7 +47,7 @@ const deleteMemeByID = async (req, res) => {
 const updateMemeByID = async (req, res) => {};
 
 export default {
-  getMeme,
+  getMemes,
   createMeme,
   deleteMemeByID,
   updateMemeByID,

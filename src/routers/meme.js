@@ -4,7 +4,7 @@ const router = new express.Router();
 
 router
   .route('/')
-  .get(memeController.getMeme)
+  .get(memeController.getMemes)
   .post(memeController.createMeme)
   .get(memeController.getAllMeme);
 
