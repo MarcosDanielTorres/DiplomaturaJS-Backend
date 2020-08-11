@@ -23,7 +23,7 @@ const getAllMeme = async (req, res) => {
   }
 };
 
-const postMeme = async (req, res) => {
+const createMeme = async (req, res) => {
   const meme = new Meme(req.body);
   try {
     await meme.save();
@@ -34,15 +34,15 @@ const postMeme = async (req, res) => {
   }
 };
 
-const deleteMeme = async (req, res) => {};
+const deleteMemeByID = async (req, res) => {};
 
-const updateMeme = async (req, res) => {};
+const updateMemeByID = async (req, res) => {};
 
 export default {
   getMeme,
-  postMeme,
-  deleteMeme,
-  updateMeme,
+  createMeme,
+  deleteMemeByID,
+  updateMemeByID,
   getMemeByID,
   getAllMeme,
 };

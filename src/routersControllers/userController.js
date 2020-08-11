@@ -10,7 +10,7 @@ const getUsers = async (req, res) => {
 const getUserByID = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
-    res.status(400).send(user);
+    res.status(200).send(user);
   } catch (e) {
     res.status(404).send({ error: 'User not found.' });
   }
