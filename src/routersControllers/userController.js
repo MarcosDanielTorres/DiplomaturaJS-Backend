@@ -1,7 +1,9 @@
 import User from '../models/user';
 
-const getUser = (req, res) => {
-  res.send('Estoy en home babyyy of users ofc');
+// for debugging
+const getUsers = async (req, res) => {
+  const user = await User.find();
+  res.send(user);
 };
 
 // for debugging
@@ -14,7 +16,7 @@ const getUserByID = async (req, res) => {
   }
 };
 
-const postUser = async (req, res) => {
+const createUser = async (req, res) => {
   const user = new User(req.body);
   try {
     await user.save();
@@ -25,8 +27,39 @@ const postUser = async (req, res) => {
   }
 };
 
-const deleteUser = async (req, res) => {};
+const deleteUserByID = async (req, res) => {
+  try {
+    await User.deleteOne(req.params.id);
+  } catch (e) {
+    res.status(500).send({ error: 'Cant delete' });
+  }
+};
 
-const updateUser = async (req, res) => {};
+const updateUserByID = async (req, res) => {
+  const updates = Object.keys(req.body);
+  const allowedUpdates = ['name', 'email', 'password'];
+  const isValidOperation = updates.every((update) =>
+    allowedUpdates.includes(update)
+  );
 
-export default { getUser, postUser, deleteUser, updateUser, getUserByID };
+  if (!isValidOperation) {
+    return res.status(400).send({ error: 'Invalid updates!' });
+  }
+
+  try {
+    const user = await User.findById(req.params.id);
+    updates.forEach((update) => (user[update] = req.body[update]));
+    await user.save();
+    res.send(user);
+  } catch (e) {
+    res.status(400).send(e);
+  }
+};
+
+export default {
+  getUsers,
+  createUser,
+  deleteUserByID,
+  updateUserByID,
+  getUserByID,
+};
