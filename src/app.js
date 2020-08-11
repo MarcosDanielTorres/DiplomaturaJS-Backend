@@ -13,10 +13,6 @@ app.use('/users', userRouter);
 app.use('/comments', commentRouter);
 app.use('/memes', memeRouter);
 
-app.get('/', async (req, res) => {
-  res.send({ message: 'im at home / ' });
-});
-
 app.listen(port, () => {
   console.log(`Server running at port ${port}`);
 });
