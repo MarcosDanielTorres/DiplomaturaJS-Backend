@@ -37,6 +37,6 @@ memeSchema.methods.toJSON = function () {
   return memeObject;
 };
 
-const Meme = mongoose.model('Meme', memeSchema);
+const Meme = mongoose.model('Meme', memadeSchema);
 
 export default Meme;
