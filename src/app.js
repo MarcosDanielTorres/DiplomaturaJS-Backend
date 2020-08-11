@@ -9,7 +9,8 @@ const port = 4000;
 
 app.use(express.json());
 
-app.use(userRouter);
+app.use('/users', userRouter);
+
 app.use(commentRouter);
 app.use(memeRouter);
 
