@@ -24,7 +24,6 @@ const getMemeByID = async (req, res) => {
 const getMemesFromUser = async (req, res) => {
   //pasarle el usuario
   //:id
-  console.log(req.params.id);
   try {
     const user = await User.findById(req.params.id);
     await user

@@ -44,13 +44,13 @@ const createComment = async (req, res) => {
   //pasarle el usuario y el meme al que está asociado
   //:userID :memeID
   try {
-    const user = await User.findById(req.params.userID);
+
     const meme = await Meme.findById(req.params.memeID);
     
     const comment = new Comment({
       ...req.body,
-      owner: user._id,
-      meme: meme._id,
+      owner: req.params.userID,
+      meme: req.params.memeID,
     });
 
     await comment.save();
