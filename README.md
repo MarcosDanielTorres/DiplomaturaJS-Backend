@@ -46,4 +46,4 @@ Get memes from User   - GET /memes/users/
 NOTA: create meme y get memes from user todavía no existen de esta forma, así van a ser cuando tengamos autenticación
 
 
-![alt text](C:\Users\leo_1\Documents\Facultad\Diplomatura\ProyectoFinal\DiplomaturaJS-Backend\docs\pictures\diagrama de clases.jpg)
+![alt text](https://github.com/MarcosDanielTorres/DiplomaturaJS-Backend/blob/b22b719186d4875c009a095a2054e414acf52346/docs/pictures/diagrama de clases.jpg)
