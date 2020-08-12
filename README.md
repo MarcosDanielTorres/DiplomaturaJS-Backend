@@ -44,3 +44,6 @@ Get all memes                 - GET  /memes
 Get memes from User   - GET /memes/users/
 
 NOTA: create meme y get memes from user todavía no existen de esta forma, así van a ser cuando tengamos autenticación
+
+
+![alt text](C:\Users\leo_1\Documents\Facultad\Diplomatura\ProyectoFinal\DiplomaturaJS-Backend\src\docs\pictures\photo_2020-08-12_14-45-18.jpg)
