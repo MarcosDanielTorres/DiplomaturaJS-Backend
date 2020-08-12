@@ -3,20 +3,23 @@
 Prototipo para el backend usado en la diplomatura de JS dictada por Patagonian Academy
 
 ## Introduccion: 
-    Este proyecto se trata de un red social diseñaba para que los usuarios puedan crear sus propios memes,
-    y además escribir comentarios sobre ellos.
+Este proyecto se trata de un red social diseñaba para que los usuarios puedan crear sus propios memes, y además escribir comentarios sobre ellos.
 
 ## Instalación: 
-    Se requiere el paquete npm, por lo que primero se debe ejecutar el siguiente comando:
-            npm install
-    Luego para ejecutar el proyecto se puede hacer con:
-    ```bash
+Se requiere el paquete npm, por lo que primero se debe ejecutar el siguiente comando:
+```bash
+        npm install
+```
+Luego para ejecutar el proyecto se puede hacer con:
+
+```bash
         npm run start 
-    ```
-        ó
-    ```bash
+```
+ó
+
+```bash
         npm run watch.
-    ```
+```
 
 ## Rutas
 
