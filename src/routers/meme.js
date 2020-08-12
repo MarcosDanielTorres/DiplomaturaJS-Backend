@@ -2,13 +2,14 @@ import express from 'express';
 import memeController from '../routersControllers/memeController';
 const router = new express.Router();
 
-router
-  .route('/')
-  .get(memeController.getMemes)
-  .post(memeController.createMeme)
-  .get(memeController.getAllMeme);
+router.route('/').get(memeController.getMemes);
 
-router.route('/:id').get(memeController.getMemeByID);
+router
+  .route('/:id')
+  .get(memeController.getMemeByID)
+  .post(memeController.createMeme);
+
+router.route('/users/:id').get(memeController.getMemesFromUser);
 
 export default router;
 

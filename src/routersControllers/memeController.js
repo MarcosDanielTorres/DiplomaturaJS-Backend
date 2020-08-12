@@ -1,4 +1,5 @@
 import Meme from '../models/meme';
+import User from '../models/user';
 
 const getMeme = (req, res) => {
   res.send('Estoy en home babyyy of meme ofc');
@@ -20,12 +21,21 @@ const getMemeByID = async (req, res) => {
   }
 };
 
-const getAllMeme = async (req, res) => {
+const getMemesFromUser = async (req, res) => {
+  //pasarle el usuario
+  //:id
+  console.log(req.params.id);
   try {
-    const meme = await Meme.find();
-    res.status(400).send(meme);
+    const user = await User.findById(req.params.id);
+    await user
+      .populate({
+        path: 'memes',
+      })
+      .execPopulate();
+
+    res.status(200).send(user.memes);
   } catch (e) {
-    res.status(404).send({ error: 'Meme not found.' });
+    res.status(404).send({ error: 'User not found.' });
   }
 };
 
@@ -35,7 +45,10 @@ const createMeme = async (req, res) => {
   req.user.avatar = buffer
   */
 
-  const meme = new Meme(req.body);
+  const meme = new Meme({
+    ...req.body,
+    owner: req.params.id,
+  });
   try {
     await meme.save();
 
@@ -57,5 +70,5 @@ export default {
   deleteMemeByID,
   updateMemeByID,
   getMemeByID,
-  getAllMeme,
+  getMemesFromUser,
 };

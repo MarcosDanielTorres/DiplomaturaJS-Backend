@@ -43,6 +43,11 @@ const memeSchema = new mongoose.Schema(
         return value >= 0;
       },
     },
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'User',
+    },
   },
   {
     timestamps: true,

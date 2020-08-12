@@ -11,6 +11,7 @@ const getComments = async (req, res) => {
 const getCommentsFromUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
+    console.log(req.params.id);
     await user
       .populate({
         path: 'comments',
@@ -37,6 +38,8 @@ const createComment = async (req, res) => {
     });
 
     await comment.save();
+    meme.comments_counter++;
+    await meme.save();
 
     res.status(201).send({ comment });
   } catch (e) {
