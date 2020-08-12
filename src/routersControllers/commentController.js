@@ -24,6 +24,23 @@ const getCommentsFromUser = async (req, res) => {
   }
 };
 
+const getCommentsFromMeme = async (req, res) => {
+  //recibe un ID del meme
+  try {
+    const meme = await Meme.findById(req.params.id);
+
+    await meme
+      .populate({
+        path: 'comments',
+      })
+      .execPopulate();
+
+    res.status(200).send(meme.comments);
+  } catch (e) {
+    res.status(404).send({ error: 'Meme not found.' });
+  }
+};
+
 const createComment = async (req, res) => {
   //pasarle el usuario y el meme al que está asociado
   //:userID :memeID
@@ -50,5 +67,6 @@ const createComment = async (req, res) => {
 export default {
   getComments,
   getCommentsFromUser,
+  getCommentsFromMeme,
   createComment,
 };
