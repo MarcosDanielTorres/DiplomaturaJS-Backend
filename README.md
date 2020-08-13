@@ -1,3 +1,24 @@
+<h1 align="center">
+  <img src="docs/images/patagonian-banner.jpg" alt="Patagonian Banner" />
+</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # DiplomaturaJS-Backend
 
 Prototipo para el backend usado en la diplomatura de JS dictada por Patagonian Academy
