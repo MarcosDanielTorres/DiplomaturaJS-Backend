@@ -6,13 +6,13 @@
 
 
 ## Tabla de contenidos
-[**Introducción**](#introducción)
+- [**Introducción**](#introducción)
 
-[**Instalación**](#instalación)
+- [**Instalación**](#instalación)
 
-[**Cómo funciona**](#cómo-funciona)
+- [**Cómo funciona**](#cómo-funciona)
 
-[**Guía de uso**](#guía-de-uso)
+- [**Guía de uso**](#guía-de-uso)
 
 
 
