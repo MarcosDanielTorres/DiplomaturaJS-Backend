@@ -1,8 +1,10 @@
 <h1 align="center">
   <img src="docs/images/patagonian-banner.jpg" alt="Patagonian Banner" />
 </h1>
+### [Facultad de Informática (UnComa)](http://faiweb.uncoma.edu.ar/) + [Patagonian Academy](https://patagonian.it/academy)
 
-**Backend** usado en el proyecto final de la diplomatura en Desarrollo Fullstack dictada por Patagonian Academy //TODO: crear link a su website.
+
+**Backend** usado en el proyecto final de la diplomatura en Desarrollo Fullstack dictada por [Patagonian Academy](https://patagonian.it/academy).
 
 
 ## Tabla de contenidos
