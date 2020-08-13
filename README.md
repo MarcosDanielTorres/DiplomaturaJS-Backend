@@ -27,7 +27,8 @@
 Este proyecto se trata de un red social diseñaba para que los usuarios puedan crear sus propios memes, y además escribir comentarios sobre ellos. //TODO: expandir más y linkear al frontend
 
 ## Prerrequisitos
-- [Node](https://github.com/nodejs/node)
+- [Node](https://github.com/nodejs/node) >= v12.18.2
+- [npm](https://github.com/npm/cli) >= v6.14.5
 
 ## Instalación 
 Se requiere el paquete npm, por lo que primero se debe ejecutar el siguiente comando:
