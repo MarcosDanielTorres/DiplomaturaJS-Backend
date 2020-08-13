@@ -7,8 +7,11 @@
 
 ## Tabla de contenido
 [**Introducción**](#introducción)
+
 [**Instalación**](#instalación)
+
 [**Cómo funciona**](#cómo-funciona)
+
 [**Guía de uso**](#guía-de-uso)
 
 
