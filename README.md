@@ -2,7 +2,7 @@
   <img src="docs/images/patagonian-banner.jpg" alt="Patagonian Banner" />
 </h1>
 
-**Backend** usado en el proyecto final de la diplomatura en Desarrollo Fullstack dictada por Patagonian Academy.
+**Backend** usado en el proyecto final de la diplomatura en Desarrollo Fullstack dictada por Patagonian Academy //TODO: crear link a su website.
 
 
 ## Tabla de contenidos
@@ -17,13 +17,8 @@
 
 
 
-
-
-
-Prototipo para el backend usado en la diplomatura de JS dictada por Patagonian Academy
-
 ## Introducción: 
-Este proyecto se trata de un red social diseñaba para que los usuarios puedan crear sus propios memes, y además escribir comentarios sobre ellos.
+Este proyecto se trata de un red social diseñaba para que los usuarios puedan crear sus propios memes, y además escribir comentarios sobre ellos. //TODO: expandir más y linkear al frontend
 
 ## Instalación: 
 Se requiere el paquete npm, por lo que primero se debe ejecutar el siguiente comando:
@@ -67,4 +62,4 @@ NOTA: create meme y get memes from user todavía no existen de esta forma, así 
 
 ## Diagrama de clases
 
-![alt text](https://github.com/MarcosDanielTorres/DiplomaturaJS-Backend/blob/master/docs/pictures/diagrama%20de%20clases.jpg)
+![alt text](https://github.com/MarcosDanielTorres/DiplomaturaJS-Backend/blob/master/docs/images/model-architecture.jpg)
