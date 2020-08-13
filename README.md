@@ -5,7 +5,7 @@
 **Backend** usado en el proyecto final de la diplomatura en Desarrollo Fullstack dictada por Patagonian Academy.
 
 
-## Tabla de contenido
+## Tabla de contenidos
 [**Introducción**](#introducción)
 
 [**Instalación**](#instalación)
