@@ -2,28 +2,24 @@
   <img src="docs/images/patagonian-banner.jpg" alt="Patagonian Banner" />
 </h1>
 
+**Backend** usado en el proyecto final de la diplomatura en Desarrollo Fullstack dictada por Patagonian Academy.
+
+
+## Tabla de contenido
+[**Introducción**](#introducción)
+[**Instalación**](#instalación)
+[**Cómo funciona**](#cómo-funciona)
+[**Guía de uso**](#guía-de-uso)
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-# DiplomaturaJS-Backend
 
 Prototipo para el backend usado en la diplomatura de JS dictada por Patagonian Academy
 
-## Introduccion: 
+## Introducción: 
 Este proyecto se trata de un red social diseñaba para que los usuarios puedan crear sus propios memes, y además escribir comentarios sobre ellos.
 
 ## Instalación: 
