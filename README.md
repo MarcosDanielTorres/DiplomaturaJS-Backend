@@ -6,7 +6,7 @@
 ### [Facultad de Informática (UnComa)](http://faiweb.uncoma.edu.ar/) + [Patagonian Academy](https://patagonian.it/academy)
 
 
-**Backend** usado en el proyecto final de la diplomatura en Desarrollo Fullstack dictada por Patagonian Academy.
+**Backend** usado en el proyecto final de la diplomatura en Desarrollo Full-Stack dictada por Patagonian Academy.
 
 
 ## Tabla de contenidos
