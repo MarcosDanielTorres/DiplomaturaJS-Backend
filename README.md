@@ -91,12 +91,50 @@ Retorna un json con los datos de un solo usuario.
 * **Sample Call:**
 
   ```javascript
-    fetch('/users', {
-        headers: {
-          'Content-Type': 'application/json',
-          "Accept": 'application/json',
-        },
-      })
+    TODO
+  ```
+  
+### Create User
+----
+Retorna un json con los datos de un solo usuario.
+* **URL**
+
+  /users/
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+  None
+
+* **Data Params**
+
+  ```json
+      {
+        "name": "Leo",
+        "email": "leox@jsdev.com",
+        "password": "12345678"
+      }
+  ```
+
+* **Success Response:**
+
+  * **Code:** 201 <br />
+    **Content:** `{ id : 12, name : "Cristian Vincenzini", email: "crisfullstacker@js.com" }`
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ error }`
+
+* **Sample Call:**
+
+  ```javascript
+    TODO
   ```
   
 
