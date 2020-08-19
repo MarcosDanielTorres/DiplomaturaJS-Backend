@@ -20,6 +20,14 @@
 
 - [**Guía de uso**](#guía-de-uso)
 
+  - [**User Endpoint**](#user-endpoint)
+    
+    - [**Show User**](#show-user)
+    
+  - [**Comment Endpoint**](#comment-endpoint)
+  
+  - [**Meme Endpoint**](#meme-endpoint)
+
 
 
 
@@ -45,6 +53,53 @@ Luego para ejecutar el proyecto se puede hacer con:
 ```bash
         npm run watch.
 ```
+
+
+## User Endpoint
+
+### Show User
+----
+Retorna un json con los datos de un solo usuario.
+* **URL**
+
+  /users/:id
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+   `id=[integer]`
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ id : 12, name : "Cristian Vincenzini", email: "crisfullstacker@js.com" }`
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "User does not exist." }`
+
+* **Sample Call:**
+
+  ```javascript
+    fetch('/users', {
+        headers: {
+          'Content-Type': 'application/json',
+          "Accept": 'application/json',
+        },
+      })
+  ```
+  
+
 
 ## Rutas
 
