@@ -124,7 +124,7 @@ Crea un usuario.
 * **Success Response:**
 
   * **Code:** 201 <br />
-    **Content:** `{ id : 12, name : "Cristian Vincenzini", email: "crisfullstacker@js.com" }`
+    **Content:** `{ id : 34, name : "Leo", email: "leox@jsdev.com" }`
  
 * **Error Response:**
 
