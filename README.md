@@ -54,8 +54,8 @@ Luego para ejecutar el proyecto se puede hacer con:
 ```bash
         npm run watch.
 ```
-##Endpoints
-A continuación se detallarán los endpoints que proveerá el backend.
+## Endpoints
+A continuación se detallarán los endpoints que provee el backend.
 
 ## User Endpoint
 
