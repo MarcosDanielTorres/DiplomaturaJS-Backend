@@ -5,7 +5,7 @@ const getUserByID = async (req, res) => {
     const user = await User.findById(req.params.id);
     res.status(200).send(user);
   } catch (e) {
-    res.status(404).send({ error: 'User not found.' });
+    res.status(404).send({ error: 'User does not exist.' });
   }
 };
 
