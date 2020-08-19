@@ -47,7 +47,9 @@ Luego para ejecutar el proyecto se puede hacer con:
 ```
 
 
-**User Endpoint**
+## User Endpoint
+
+### Show User
 ----
 Retorna un json con los datos de un solo usuario.
 * **URL**
