@@ -18,7 +18,7 @@
 
 - [**Cómo funciona**](#cómo-funciona)
 
-- [**Guía de uso**](#guía-de-uso)
+- [**Endpoints**](#endpoints)
 
   - [**User Endpoint**](#user-endpoint)
     
@@ -54,7 +54,8 @@ Luego para ejecutar el proyecto se puede hacer con:
 ```bash
         npm run watch.
 ```
-
+##Endpoints
+A continuación se detallarán los endpoints que proveerá el backend.
 
 ## User Endpoint
 
