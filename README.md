@@ -168,6 +168,6 @@ Get memes from User   - GET /memes/users/
 
 
 
-## Diagrama de clases
+## Data Model Design
 
 ![alt text](https://github.com/MarcosDanielTorres/DiplomaturaJS-Backend/blob/master/docs/images/model-architecture.jpg)
