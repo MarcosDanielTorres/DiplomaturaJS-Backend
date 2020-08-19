@@ -26,9 +26,7 @@ const createMeme = async (req, res) => {
   }
 };
 
-/*const getMemesFromUser = async (req, res) => {
-  //pasarle el usuario
-  //:id
+const getMemesFromUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     await user
@@ -41,7 +39,7 @@ const createMeme = async (req, res) => {
   } catch (e) {
     res.status(404).send({ error: 'User not found.' });
   }
-};*/
+};
 
 /*const deleteMemeByID = async (req, res) => {};
 

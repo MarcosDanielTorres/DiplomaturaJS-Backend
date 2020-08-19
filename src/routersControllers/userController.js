@@ -1,12 +1,5 @@
 import User from '../models/user';
 
-// for debugging
-const getUsers = async (req, res) => {
-  const user = await User.find();
-  res.send(user);
-};
-
-// for debugging
 const getUserByID = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -27,7 +20,7 @@ const createUser = async (req, res) => {
   }
 };
 
-const deleteUserByID = async (req, res) => {
+/*const deleteUserByID = async (req, res) => {
   try {
     await User.deleteOne(req.params.id);
   } catch (e) {
@@ -54,12 +47,16 @@ const updateUserByID = async (req, res) => {
   } catch (e) {
     res.status(400).send(e);
   }
-};
+};*/
+
+/*
+// for debugging
+const getUsers = async (req, res) => {
+  const user = await User.find();
+  res.send(user);
+};*/
 
 export default {
-  getUsers,
   createUser,
-  deleteUserByID,
-  updateUserByID,
   getUserByID,
 };
