@@ -23,6 +23,7 @@
   - [**User Endpoint**](#user-endpoint)
     
     - [**Show User**](#show-user)
+    - [**Create User**](#create-user)
     
   - [**Comment Endpoint**](#comment-endpoint)
   
@@ -96,7 +97,7 @@ Retorna un json con los datos de un solo usuario.
   
 ### Create User
 ----
-Retorna un json con los datos de un solo usuario.
+Crea un usuario.
 * **URL**
 
   /users/
