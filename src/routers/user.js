@@ -2,7 +2,11 @@ import express from 'express';
 import userController from '../routersControllers/userController';
 const router = new express.Router();
 
-router.route('/').get(userController.getUsers).post(userController.createUser);
+router.route('/').get(userController.getUsers);
+
+router.route('/api/auth/signup').post(userController.signUp);
+router.route('/api/auth/signin').post(userController.signIn);
+
 router
   .route('/:id')
   .get(userController.getUserByID)

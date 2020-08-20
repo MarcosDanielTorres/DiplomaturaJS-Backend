@@ -1,4 +1,7 @@
 import User from '../models/user';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import config from '../middlewares/auth.config';
 
 // for debugging
 const getUsers = async (req, res) => {
@@ -16,7 +19,7 @@ const getUserByID = async (req, res) => {
   }
 };
 
-const createUser = async (req, res) => {
+const signUp = async (req, res) => {
   const user = new User(req.body);
   try {
     await user.save();
@@ -56,10 +59,49 @@ const updateUserByID = async (req, res) => {
   }
 };
 
+const signIn = async (req, res) => {
+  User.findOne({ email: req.body.email }).exec((err, user) => {
+    if (err) {
+      res.status(500).send({ message: err });
+      return;
+    }
+
+    if (!user) {
+      return res.status(404).send({ message: 'User not found.' });
+    }
+
+    const passwordIsValid = bcrypt.compareSync(
+      req.body.password,
+      user.password
+    );
+
+    const hash = bcrypt.hashSync(req.body.password, 8);
+
+    if (!passwordIsValid) {
+      return res.status(401).send({
+        accessToken: null,
+        message: 'Invalid Password!',
+      });
+    }
+
+    const token = jwt.sign({ id: user.id }, config.secret, {
+      expiresIn: 86400, // 24 hours
+    });
+
+    res.status(200).send({
+      id: user._id,
+      username: user.name,
+      email: user.email,
+      accessToken: token,
+    });
+  });
+};
+
 export default {
   getUsers,
-  createUser,
+  signUp,
   deleteUserByID,
   updateUserByID,
   getUserByID,
+  signIn,
 };

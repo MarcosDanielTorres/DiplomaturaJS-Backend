@@ -10,7 +10,7 @@ const memeSchema = new mongoose.Schema(
       maxlength: 50,
     },
     img: {
-      type: Buffer,
+      type: String,
       //TODO: una vez terminado el testing hacerlo required
     },
     category: {
