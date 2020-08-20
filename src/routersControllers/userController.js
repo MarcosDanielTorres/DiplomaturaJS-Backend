@@ -3,19 +3,12 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import config from '../middlewares/auth.config';
 
-// for debugging
-const getUsers = async (req, res) => {
-  const user = await User.find();
-  res.send(user);
-};
-
-// for debugging
 const getUserByID = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     res.status(200).send(user);
   } catch (e) {
-    res.status(404).send({ error: 'User not found.' });
+    res.status(404).send({ error: 'User does not exist.' });
   }
 };
 
@@ -30,7 +23,7 @@ const signUp = async (req, res) => {
   }
 };
 
-const deleteUserByID = async (req, res) => {
+/*const deleteUserByID = async (req, res) => {
   try {
     await User.deleteOne(req.params.id);
   } catch (e) {
@@ -57,7 +50,14 @@ const updateUserByID = async (req, res) => {
   } catch (e) {
     res.status(400).send(e);
   }
-};
+};*/
+
+/*
+// for debugging
+const getUsers = async (req, res) => {
+  const user = await User.find();
+  res.send(user);
+};*/
 
 const signIn = async (req, res) => {
   User.findOne({ email: req.body.email }).exec((err, user) => {
@@ -98,10 +98,9 @@ const signIn = async (req, res) => {
 };
 
 export default {
-  getUsers,
+
   signUp,
-  deleteUserByID,
-  updateUserByID,
+
   getUserByID,
   signIn,
 };

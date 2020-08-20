@@ -3,11 +3,11 @@ import memeController from '../routersControllers/memeController';
 import verifyToken from '../middlewares/authJwt';
 const router = new express.Router();
 
-router.route('/').get(memeController.getMemes);
+router.route('/').get(memeController.getAllMemes);
 
 router
   .route('/:id')
-  .get(memeController.getMemeByID)
+
   .post(memeController.createMeme);
 
 router.route('/users/:id').get(memeController.getMemesFromUser);

@@ -18,7 +18,16 @@
 
 - [**Cómo funciona**](#cómo-funciona)
 
-- [**Guía de uso**](#guía-de-uso)
+- [**Endpoints**](#endpoints)
+
+  - [**User Endpoint**](#user-endpoint)
+    
+    - [**Show User**](#show-user)
+    - [**Create User**](#create-user)
+    
+  - [**Comment Endpoint**](#comment-endpoint)
+  
+  - [**Meme Endpoint**](#meme-endpoint)
 
 
 
@@ -46,14 +55,103 @@ Luego para ejecutar el proyecto se puede hacer con:
         npm run watch.
 ```
 
+## User Endpoint
+
+### Show User
+----
+Retorna un json con los datos de un solo usuario.
+* **URL**
+
+  /users/:id
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+   `id=[integer]`
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ id : 12, name : "Cristian Vincenzini", email: "crisfullstacker@js.com" }`
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "User does not exist." }`
+
+* **Sample Call:**
+
+  ```javascript
+    TODO
+  ```
+  
+### Create User
+----
+Crea un usuario.
+* **URL**
+
+  /users/
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+    None
+
+* **Data Params**
+
+  ```json
+      {
+        "name": "Leo",
+        "email": "leox@jsdev.com",
+        "password": "12345678"
+      }
+  ```
+
+* **Success Response:**
+
+  * **Code:** 201 <br />
+    **Content:** `{ id : 34, name : "Leo", email: "leox@jsdev.com" }`
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ error }`
+
+* **Sample Call:**
+
+  ```javascript
+    TODO
+  ```
+  
+
+
 ## Rutas
 
 UsersEndpoint:
 Create a user  -  POST        /users/
-Update user    -  PATCH    /users/me/
-Delete user     -  DELETE    /users/me/
 
-NOTAS: por ahora update y delete no existen de esa forma , cuando agreguemos autenticación si
+Get User       -  GET         /users/id
+
+TODO
+Update user    -  PATCH    /users/me/
+
+Delete user     -  DELETE    /users/me/
+TODO
+
 
 Comments Endpoint:
 Create comment                      -  POST    /comments/:memeID
@@ -61,15 +159,15 @@ Get comments from Meme   -  GET      /comments/memes/:memeID
 Get comments from User      -   GET     /comments/users/me
 
 
-NOTA: get comments from User no existe de esta forma, cuando agreguemos autenticación si
+
 
 Memes Endpoint:
 Create a meme               -    POST /memes/:memeID
 Get all memes                 - GET  /memes
 Get memes from User   - GET /memes/users/
 
-NOTA: create meme y get memes from user todavía no existen de esta forma, así van a ser cuando tengamos autenticación
 
-## Diagrama de clases
+
+## Data Model Design
 
 ![alt text](https://github.com/MarcosDanielTorres/DiplomaturaJS-Backend/blob/master/docs/images/model-architecture.jpg)
