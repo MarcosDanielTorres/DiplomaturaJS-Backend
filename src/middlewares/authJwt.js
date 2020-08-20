@@ -1,18 +1,27 @@
 import jwt from 'jsonwebtoken';
 import config from './auth.config';
+import User from '../models/user';
 
-export default function verifyToken(req, res, next) {
-  const token = req.headers['x-access-token'];
+export default async function authJWT(req, res, next) {
+  try {
+    const token = req.header('x-access-token').replace('Bearer ', '');
+    console.log(token);
 
-  if (!token) {
-    return res.status(403).send({ message: 'No token provided!' });
-  }
+    const decoded = jwt.verify(token, config.secret);
+    console.log(decoded);
+    const user = await User.findOne({
+      _id: decoded._id,
+      'tokens.token': token,
+    });
 
-  jwt.verify(token, config.secret, (err, decoded) => {
-    if (err) {
-      return res.status(401).send({ message: 'Unauthorized!' });
+    if (!user) {
+      throw new Error();
     }
-    req.userId = decoded.id;
+
+    req.token = token;
+    req.user = user;
     next();
-  });
+  } catch (e) {
+    res.status(401).send({ error: 'Please authenticate.' });
+  }
 }

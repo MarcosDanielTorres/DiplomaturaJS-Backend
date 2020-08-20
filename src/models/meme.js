@@ -60,6 +60,12 @@ memeSchema.virtual('comments', {
   foreignField: 'meme',
 });
 
+memeSchema.pre('remove', async function (next) {
+  const meme = this;
+  await Comment.deleteMany({ meme: meme._id });
+  next();
+});
+
 const Meme = mongoose.model('Meme', memeSchema);
 
 export default Meme;
