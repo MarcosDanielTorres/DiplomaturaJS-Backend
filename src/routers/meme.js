@@ -1,5 +1,6 @@
 import express from 'express';
 import memeController from '../routersControllers/memeController';
+import verifyToken from '../middlewares/authJwt';
 const router = new express.Router();
 
 router.route('/').get(memeController.getAllMemes);
