@@ -23,11 +23,11 @@
   - [**User Endpoint**](#user-endpoint)
     
     - [**Show User**](#show-user)
-    - [**Create User**](#create-user)
+    - [**Sign Up**](#sign-up)
     
-  - [**Comment Endpoint**](#comment-endpoint)
-  
   - [**Meme Endpoint**](#meme-endpoint)
+  
+  - [**Comment Endpoint**](#comment-endpoint)
 
 
 
@@ -94,7 +94,7 @@ Retorna un json con los datos de un solo usuario.
     TODO
   ```
   
-### Create User
+### Sign Up
 ----
 Crea un usuario.
 * **URL**
@@ -137,7 +137,9 @@ Crea un usuario.
     TODO
   ```
   
+## Meme Endpoint
 
+## Comment Endpoint
 
 ## Rutas
 
