@@ -4,7 +4,7 @@ import User from '../models/user';
 
 export default async function authJWT(req, res, next) {
   try {
-    const token = req.header('x-access-token').replace('Bearer ', '');
+    const token = req.header('x-access-token');
     console.log(token);
 
     const decoded = jwt.verify(token, config.secret);
