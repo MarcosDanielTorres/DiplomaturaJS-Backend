@@ -139,7 +139,182 @@ Crea un usuario.
   
 ## Meme Endpoint
 
+### Show Memes
+----
+  Retorna un json con los datos de todos los memes
+ 
+  /memes
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ [id : 3453451, title: "macri gato", img: url, category: "funny", comment_counter: 10, raiting: 100, owner: 12], [], [] }`
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "Memes doesn't exists" }`
+    
+   ### Create Meme
+----
+Crear un meme.
+* **URL**
+
+  /memes
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+    None
+
+* **Data Params**
+
+  ```json
+      {
+        "title": "will smith", 
+        "img": "url",
+        "category": "funny", 
+      }
+  ```
+
+* **Success Response:**
+
+  * **Code:** 201 <br />
+    **Content:** `{ id : 3453451, title: "will smith", img: url, category: "funny", comment_counter: 0, raiting: 0, owner: 1124 }`
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ error }`
+
+* **Sample Call:**
+
+  ```javascript
+    TODO
+  ```
+    
+
 ## Comment Endpoint
+
+### Show Comments from User
+----
+  Retorna un json con los comentarios de un usuario
+ 
+  /comments/users/:userID
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+   **Required:**
+   
+    `id=[integer]`
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ [id : 34, message: "muy bueno" meme: 412 owner: 12], [], [] }`
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "Comments doesn't exists" }`
+    
+  ### Show Comments from Meme
+----
+  Retorna un json con los comentarios de un meme
+ 
+  /comments/memes/:memeID
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+   **Required:**
+   
+     `id=[integer]`
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ [id : 35, message: "malo" meme: 122 owner: 15], [], [] }`
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "Comments doesn't exists" }`
+    
+   ### Create Comments
+----
+Crear un comentario.
+* **URL**
+
+  /:userID/:memeID
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+     `id=[integer]`
+
+* **Data Params**
+
+  ```json
+      {
+        "message": "really funny", 
+      }
+  ```
+
+* **Success Response:**
+
+  * **Code:** 201 <br />
+    **Content:** `{ id : 36, message: "malo" meme: 122 owner: 15 }`
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ error }`
+
+* **Sample Call:**
+
+  ```javascript
+    TODO
+  ```
+    
 
 ## Rutas
 
