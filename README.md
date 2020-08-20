@@ -141,7 +141,7 @@ Crea un usuario.
 
 ### Show Memes
 ----
-  Retorna un json con los datos de todos los memes
+Retorna un json con los datos de todos los memes
  
   /memes
 
@@ -168,7 +168,7 @@ Crea un usuario.
   * **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "Memes doesn't exists" }`
     
-   ### Create Meme
+### Create Meme
 ----
 Crear un meme.
 * **URL**
@@ -216,7 +216,7 @@ Crear un meme.
 
 ### Show Comments from User
 ----
-  Retorna un json con los comentarios de un usuario
+ Retorna un json con los comentarios de un usuario
  
   /comments/users/:userID
 
@@ -244,9 +244,9 @@ Crear un meme.
   * **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "Comments doesn't exists" }`
     
-  ### Show Comments from Meme
+ ### Show Comments from Meme
 ----
-  Retorna un json con los comentarios de un meme
+Retorna un json con los comentarios de un meme
  
   /comments/memes/:memeID
 
@@ -274,7 +274,7 @@ Crear un meme.
   * **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "Comments doesn't exists" }`
     
-   ### Create Comments
+### Create Comments
 ----
 Crear un comentario.
 * **URL**
