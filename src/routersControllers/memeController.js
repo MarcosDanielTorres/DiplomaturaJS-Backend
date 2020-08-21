@@ -56,13 +56,11 @@ const createMeme = async (req, res) => {
     try {
       await meme.save();
 
-      res
-        .status(201)
-        .send({
-          fileUrl:
-            `http://localhost:${process.env.PORT || 4000}/images/` +
-            req.file.filename,
-        });
+      res.status(201).send({
+        fileUrl:
+          `http://localhost:${process.env.PORT || 4000}/images/` +
+          req.file.filename,
+      });
     } catch (e) {
       res.status(400).send(e);
     }
@@ -88,11 +86,10 @@ const getMemesFromUser = async (req, res) => {
   }
 };
 
-/*const deleteMemeByID = async (req, res) => {};
-
-const updateMemeByID = async (req, res) => {};*/
+const patchMemeByID = async (req, res) => {};
 
 export default {
+  patchMemeByID,
   getAllMemes,
   createMeme,
   getMemesFromUser,

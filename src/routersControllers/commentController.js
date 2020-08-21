@@ -2,12 +2,6 @@ import Comment from '../models/comment';
 import User from '../models/user';
 import Meme from '../models/meme';
 
-// for debugging
-const getComments = async (req, res) => {
-  const comment = await Comment.find();
-  res.send(comment);
-};
-
 const getCommentsFromUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.userID);
@@ -41,15 +35,12 @@ const getCommentsFromMeme = async (req, res) => {
 };
 
 const createComment = async (req, res) => {
-  //pasarle el usuario y el meme al que está asociado
-  //:userID :memeID
   try {
-
     const meme = await Meme.findById(req.params.memeID);
-    
+
     const comment = new Comment({
       ...req.body,
-      owner: req.params.userID,
+      owner: req.user._id,
       meme: req.params.memeID,
     });
 
@@ -64,7 +55,6 @@ const createComment = async (req, res) => {
 };
 
 export default {
-  getComments,
   getCommentsFromUser,
   getCommentsFromMeme,
   createComment,
