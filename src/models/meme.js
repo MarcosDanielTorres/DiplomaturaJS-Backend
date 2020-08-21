@@ -32,11 +32,11 @@ const memeSchema = new mongoose.Schema(
         return categoriesAllowed.includes(value);
       },
     },
-    comments_counter: {
+    comment_counter: {
       type: Number,
       default: 0,
     },
-    raiting: {
+    points: {
       type: Number,
       default: 0,
     },

@@ -49,7 +49,7 @@ const createComment = async (req, res) => {
 
     const meme = await Meme.findOneAndUpdate(
       { _id: req.params.memeID },
-      { $inc: { comments_counter: 1 } }
+      { $inc: { comment_counter: 1 } }
     );
 
     const comment = new Comment({

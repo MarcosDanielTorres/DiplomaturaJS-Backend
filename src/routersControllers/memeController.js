@@ -88,10 +88,12 @@ const getMemesFromUser = async (req, res) => {
 
 const patchMemeByID = async (req, res) => {
   try {
+    const value = req.query.increase === 'true' ? 1 : -1;
+
     await Meme.findOneAndUpdate(
       { _id: req.params.memeID },
       {
-        $inc: { raiting: 1 },
+        $inc: { points: value },
       }
     );
 
