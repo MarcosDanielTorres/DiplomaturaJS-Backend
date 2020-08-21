@@ -10,7 +10,9 @@ router
 
   .post(memeController.createMeme);
 
-router.route('/users/:id').get(memeController.getMemesFromUser);
+router
+  .route('/users/:id')
+  .get(memeController.uploadFile, memeController.getMemesFromUser);
 
 export default router;
 
