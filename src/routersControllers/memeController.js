@@ -48,7 +48,9 @@ const createMeme = async (req, res) => {
       owner: req.params.id,
       title: req.body.title,
       category: req.body.category,
-      img: 'http://localhost:3000/images/' + req.file.filename,
+      img:
+        `http://localhost:${process.env.PORT || 4000}/images/` +
+        req.file.filename,
     });
 
     try {
@@ -56,7 +58,11 @@ const createMeme = async (req, res) => {
 
       res
         .status(201)
-        .send({ fileUrl: 'http://localhost:3000/images/' + req.file.filename });
+        .send({
+          fileUrl:
+            `http://localhost:${process.env.PORT || 4000}/images/` +
+            req.file.filename,
+        });
     } catch (e) {
       res.status(400).send(e);
     }
