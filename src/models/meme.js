@@ -39,9 +39,6 @@ const memeSchema = new mongoose.Schema(
     raiting: {
       type: Number,
       default: 0,
-      validate(value) {
-        return value >= 0;
-      },
     },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
@@ -58,6 +55,12 @@ memeSchema.virtual('comments', {
   ref: 'Comment',
   localField: '_id',
   foreignField: 'meme',
+});
+
+memeSchema.pre('remove', async function (next) {
+  const meme = this;
+  await Comment.deleteMany({ meme: meme._id });
+  next();
 });
 
 const Meme = mongoose.model('Meme', memeSchema);

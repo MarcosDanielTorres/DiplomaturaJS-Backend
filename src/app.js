@@ -18,6 +18,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use('/images', express.static('public/images'));
 app.use('/users', userRouter);
 app.use('/comments', commentRouter);
 app.use('/memes', memeRouter);

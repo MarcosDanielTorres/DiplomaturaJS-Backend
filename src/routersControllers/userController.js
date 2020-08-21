@@ -1,7 +1,4 @@
 import User from '../models/user';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import config from '../middlewares/auth.config';
 
 const getUserByID = async (req, res) => {
   try {
@@ -14,12 +11,49 @@ const getUserByID = async (req, res) => {
 
 const signUp = async (req, res) => {
   const user = new User(req.body);
+
   try {
     await user.save();
-
-    res.status(201).send({ user });
+    const token = await user.generateAuthToken();
+    res.status(201).send({ user, token });
   } catch (e) {
-    res.status(400).send(e);
+    res.status(500).send(e);
+  }
+};
+
+const signIn = async (req, res) => {
+  try {
+    const user = await User.findByCredentials(
+      req.body.email,
+      req.body.password
+    );
+    const token = await user.generateAuthToken();
+    res.send({ user, token });
+  } catch (e) {
+    res.status(400).send();
+  }
+};
+
+const logout = async (req, res) => {
+  try {
+    req.user.tokens = req.user.tokens.filter((token) => {
+      return token.token !== req.token;
+    });
+    await req.user.save();
+
+    res.send();
+  } catch (e) {
+    res.status(500).send();
+  }
+};
+
+const logoutAll = async (req, res) => {
+  try {
+    req.user.tokens = [];
+    await req.user.save();
+    res.send();
+  } catch (e) {
+    res.status(500).send();
   }
 };
 
@@ -59,48 +93,10 @@ const getUsers = async (req, res) => {
   res.send(user);
 };*/
 
-const signIn = async (req, res) => {
-  User.findOne({ email: req.body.email }).exec((err, user) => {
-    if (err) {
-      res.status(500).send({ message: err });
-      return;
-    }
-
-    if (!user) {
-      return res.status(404).send({ message: 'User not found.' });
-    }
-
-    const passwordIsValid = bcrypt.compareSync(
-      req.body.password,
-      user.password
-    );
-
-    const hash = bcrypt.hashSync(req.body.password, 8);
-
-    if (!passwordIsValid) {
-      return res.status(401).send({
-        accessToken: null,
-        message: 'Invalid Password!',
-      });
-    }
-
-    const token = jwt.sign({ id: user.id }, config.secret, {
-      expiresIn: 86400, // 24 hours
-    });
-
-    res.status(200).send({
-      id: user._id,
-      username: user.name,
-      email: user.email,
-      accessToken: token,
-    });
-  });
-};
-
 export default {
-
   signUp,
-
   getUserByID,
   signIn,
+  logout,
+  logoutAll,
 };
