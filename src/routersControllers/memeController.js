@@ -45,7 +45,7 @@ const createMeme = async (req, res) => {
   } else {
     // verificacion
     const meme = new Meme({
-      owner: req.params.id,
+      owner: req.user._id,
       title: req.body.title,
       category: req.body.category,
       img:

@@ -17,6 +17,7 @@ const commentSchema = new mongoose.Schema(
       required: true,
       ref: 'Meme',
     },
+
   },
   {
     timestamps: true,
