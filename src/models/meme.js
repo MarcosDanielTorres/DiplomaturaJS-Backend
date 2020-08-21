@@ -39,9 +39,6 @@ const memeSchema = new mongoose.Schema(
     raiting: {
       type: Number,
       default: 0,
-      validate(value) {
-        return value >= 0;
-      },
     },
     owner: {
       type: mongoose.Schema.Types.ObjectId,

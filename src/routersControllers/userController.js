@@ -1,7 +1,4 @@
 import User from '../models/user';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import config from '../middlewares/auth.config';
 
 const getUserByID = async (req, res) => {
   try {
