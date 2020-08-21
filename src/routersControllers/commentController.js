@@ -36,7 +36,7 @@ const getCommentsFromMeme = async (req, res) => {
 
 const createComment = async (req, res) => {
   try {
-    const meme = await Meme.findOneAndUpdate(
+    await Meme.findOneAndUpdate(
       { _id: req.params.memeID },
       { $inc: { comment_counter: 1 } }
     );
