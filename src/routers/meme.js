@@ -4,10 +4,7 @@ const router = new express.Router();
 
 router.route('/').get(memeController.getAllMemes);
 
-router
-  .route('/:id')
-  .get(memeController.getMemesFromUser)
-  .post(memeController.uploadFile, memeController.createMeme);
+router.route('/:id').post(memeController.uploadFile, memeController.createMeme);
 
 router.route('/users/:id').get(memeController.getMemesFromUser);
 
