@@ -86,7 +86,20 @@ const getMemesFromUser = async (req, res) => {
   }
 };
 
-const patchMemeByID = async (req, res) => {};
+const patchMemeByID = async (req, res) => {
+  try {
+    await Meme.findOneAndUpdate(
+      { _id: req.params.memeID },
+      {
+        $inc: { raiting: 1 },
+      }
+    );
+
+    res.status(200).send({ message: 'Updated!' });
+  } catch (e) {
+    res.status(404).send({ error: 'Cannot update meme.' });
+  }
+};
 
 export default {
   patchMemeByID,

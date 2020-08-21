@@ -36,8 +36,7 @@ const getCommentsFromMeme = async (req, res) => {
 
 const createComment = async (req, res) => {
   try {
-    const meme = await Meme.findById(req.params.memeID);
-
+    /*const meme = await Meme.findById(req.params.memeID);
     const comment = new Comment({
       ...req.body,
       owner: req.user._id,
@@ -46,7 +45,20 @@ const createComment = async (req, res) => {
 
     await comment.save();
     meme.comments_counter++;
-    await meme.save();
+    await meme.save();*/
+
+    const meme = await Meme.findOneAndUpdate(
+      { _id: req.params.memeID },
+      { $inc: { comments_counter: 1 } }
+    );
+
+    const comment = new Comment({
+      ...req.body,
+      owner: req.user._id,
+      meme: req.params.memeID,
+    });
+
+    await comment.save();
 
     res.status(201).send({ comment });
   } catch (e) {
