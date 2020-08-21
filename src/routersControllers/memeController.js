@@ -37,7 +37,7 @@ const imageFilter = function (req, file, cb) {
 
 const upload = multer({ storage: storage, fileFilter: imageFilter });
 
-const uploadFile = upload.single('file');
+const uploadFile = upload.single('img_source');
 
 const createMeme = async (req, res) => {
   if (!req.file) {
@@ -48,19 +48,14 @@ const createMeme = async (req, res) => {
       owner: req.user._id,
       title: req.body.title,
       category: req.body.category,
-      img:
+      img_source:
         `http://localhost:${process.env.PORT || 4000}/images/` +
         req.file.filename,
     });
 
     try {
       await meme.save();
-
-      res.status(201).send({
-        fileUrl:
-          `http://localhost:${process.env.PORT || 4000}/images/` +
-          req.file.filename,
-      });
+      res.status(201).send(meme);
     } catch (e) {
       res.status(400).send(e);
     }
