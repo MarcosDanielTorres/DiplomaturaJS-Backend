@@ -2,14 +2,12 @@
   <img src="docs/images/patagonian-banner.jpg" alt="Patagonian Banner" />
 </h1>
 
-
 ### [Facultad de Informática (UnComa)](http://faiweb.uncoma.edu.ar/) + [Patagonian Academy](https://patagonian.it/academy)
-
 
 **Backend** usado en el proyecto final de la diplomatura en Desarrollo Full-Stack dictada por Patagonian Academy.fsdafdsafsdafsa
 
-
 ## Tabla de contenidos
+
 - [**Introducción**](#introducción)
 
 - [**Prerrequisitos**](#prerrequisitos)
@@ -21,34 +19,37 @@
 - [**Endpoints**](#endpoints)
 
   - [**User Endpoint**](#user-endpoint)
-    
+
     - [**Show User**](#show-user)
     - [**Sign Up**](#sign-up)
-    
+
   - [**Meme Endpoint**](#meme-endpoint)
-  
+
   - [**Comment Endpoint**](#comment-endpoint)
 
-
-
-
 ## Introducción
-Este proyecto se trata de un red social diseñaba para que los usuarios puedan crear sus propios memes, y además escribir comentarios sobre ellos. //TODO: expandir más y linkear al frontend
+
+Este proyecto se trata de un red social diseñada para que los usuarios puedan crear sus propios memes, y además escribir comentarios sobre ellos. //TODO: expandir más y linkear al frontend
 
 ## Prerrequisitos
+
 - [Node](https://github.com/nodejs/node) >= v12.18.2
 - [npm](https://github.com/npm/cli) >= v6.14.5
 
-## Instalación 
+## Instalación
+
 Se requiere el paquete npm, por lo que primero se debe ejecutar el siguiente comando:
+
 ```bash
         npm install
 ```
+
 Luego para ejecutar el proyecto se puede hacer con:
 
 ```bash
-        npm run start 
+        npm run start
 ```
+
 ó
 
 ```bash
@@ -58,101 +59,108 @@ Luego para ejecutar el proyecto se puede hacer con:
 ## User Endpoint
 
 ### Show User
-----
+
+---
+
 Retorna un json con los datos de un solo usuario.
-* **URL**
+
+- **URL**
 
   /users/:id
 
-* **Method:**
+- **Method:**
 
   `GET`
-  
-*  **URL Params**
 
-   **Required:**
- 
-   `id=[integer]`
+- **URL Params**
 
-* **Data Params**
+  **Required:**
+
+  `id=[integer]`
+
+- **Data Params**
 
   None
 
-* **Success Response:**
+- **Success Response:**
 
-  * **Code:** 200 <br />
+  - **Code:** 200 <br />
     **Content:** `{ id : 12, name : "Cristian Vincenzini", email: "crisfullstacker@js.com" }`
- 
-* **Error Response:**
 
-  * **Code:** 404 NOT FOUND <br />
+- **Error Response:**
+
+  - **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "User does not exist." }`
 
-* **Sample Call:**
+- **Sample Call:**
 
   ```javascript
-    TODO
+  TODO;
   ```
-  
+
 ### Sign Up
-----
+
+---
+
 Crea un usuario.
-* **URL**
+
+- **URL**
 
   /users/
 
-* **Method:**
+- **Method:**
 
   `POST`
-  
-*  **URL Params**
 
-   **Required:**
- 
-    None
+- **URL Params**
 
-* **Data Params**
+  **Required:**
+
+  None
+
+- **Data Params**
 
   ```json
-      {
-        "name": "Leo",
-        "email": "leox@jsdev.com",
-        "password": "12345678"
-      }
+  {
+    "name": "Leo",
+    "email": "leox@jsdev.com",
+    "password": "12345678"
+  }
   ```
 
-* **Success Response:**
+- **Success Response:**
 
-  * **Code:** 201 <br />
+  - **Code:** 201 <br />
     **Content:** `{ id : 34, name : "Leo", email: "leox@jsdev.com" }`
- 
-* **Error Response:**
 
-  * **Code:** 400 BAD REQUEST <br />
+- **Error Response:**
+
+  - **Code:** 400 BAD REQUEST <br />
     **Content:** `{ error }`
 
-* **Sample Call:**
+- **Sample Call:**
 
   ```javascript
-    TODO
+  TODO;
   ```
-  
+
 ## Meme Endpoint
 
 ### Show Memes
-----
-Retorna un json con los datos de todos los memes
- 
-  /memes
 
-* **Method:**
+---
+
+Retorna un json con los datos de todos los memes
+
+/memes
+
+- **Method:**
 
   `GET`
-  
-*  **URL Params**
 
-   **Required:**
- 
+- **URL Params**
+
+  **Required:**
 
 * **Data Params**
 
@@ -160,190 +168,192 @@ Retorna un json con los datos de todos los memes
 
 * **Success Response:**
 
-  * **Code:** 200 <br />
+  - **Code:** 200 <br />
     **Content:** `{ [id : 3453451, title: "macri gato", img: url, category: "funny", comment_counter: 10, raiting: 100, owner: 12], [], [] }`
- 
+
 * **Error Response:**
 
-  * **Code:** 404 NOT FOUND <br />
+  - **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "Memes doesn't exists" }`
-    
+
 ### Create Meme
-----
+
+---
+
 Crear un meme.
-* **URL**
+
+- **URL**
 
   /memes
 
-* **Method:**
+- **Method:**
 
   `POST`
-  
-*  **URL Params**
 
-   **Required:**
- 
-    None
+- **URL Params**
 
-* **Data Params**
+  **Required:**
+
+  None
+
+- **Data Params**
 
   ```json
-      {
-        "title": "will smith", 
-        "img": "url",
-        "category": "funny", 
-      }
+  {
+    "title": "will smith",
+    "img": "url",
+    "category": "funny"
+  }
   ```
 
-* **Success Response:**
+- **Success Response:**
 
-  * **Code:** 201 <br />
+  - **Code:** 201 <br />
     **Content:** `{ id : 3453451, title: "will smith", img: url, category: "funny", comment_counter: 0, raiting: 0, owner: 1124 }`
- 
-* **Error Response:**
 
-  * **Code:** 400 BAD REQUEST <br />
+- **Error Response:**
+
+  - **Code:** 400 BAD REQUEST <br />
     **Content:** `{ error }`
 
-* **Sample Call:**
+- **Sample Call:**
 
   ```javascript
-    TODO
+  TODO;
   ```
-    
 
 ## Comment Endpoint
 
 ### Show Comments from User
-----
- Retorna un json con los comentarios de un usuario
- 
-  /comments/users/:userID
 
-* **Method:**
+---
+
+Retorna un json con los comentarios de un usuario
+
+/comments/users/:userID
+
+- **Method:**
 
   `GET`
-  
-*  **URL Params**
 
-   **Required:**
-   
-    `id=[integer]`
+- **URL Params**
 
-* **Data Params**
+  **Required:**
+
+  `id=[integer]`
+
+- **Data Params**
 
   None
 
-* **Success Response:**
+- **Success Response:**
 
-  * **Code:** 200 <br />
+  - **Code:** 200 <br />
     **Content:** `{ [id : 34, message: "muy bueno" meme: 412 owner: 12], [], [] }`
- 
-* **Error Response:**
 
-  * **Code:** 404 NOT FOUND <br />
+- **Error Response:**
+
+  - **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "Comments doesn't exists" }`
-    
- ### Show Comments from Meme
-----
-Retorna un json con los comentarios de un meme
- 
-  /comments/memes/:memeID
 
-* **Method:**
+### Show Comments from Meme
+
+---
+
+Retorna un json con los comentarios de un meme
+
+/comments/memes/:memeID
+
+- **Method:**
 
   `GET`
-  
-*  **URL Params**
 
-   **Required:**
-   
-     `id=[integer]`
+- **URL Params**
 
-* **Data Params**
+  **Required:**
+
+  `id=[integer]`
+
+- **Data Params**
 
   None
 
-* **Success Response:**
+- **Success Response:**
 
-  * **Code:** 200 <br />
+  - **Code:** 200 <br />
     **Content:** `{ [id : 35, message: "malo" meme: 122 owner: 15], [], [] }`
- 
-* **Error Response:**
 
-  * **Code:** 404 NOT FOUND <br />
+- **Error Response:**
+
+  - **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "Comments doesn't exists" }`
-    
+
 ### Create Comments
-----
+
+---
+
 Crear un comentario.
-* **URL**
+
+- **URL**
 
   /:userID/:memeID
 
-* **Method:**
+- **Method:**
 
   `POST`
-  
-*  **URL Params**
 
-   **Required:**
- 
-     `id=[integer]`
+- **URL Params**
 
-* **Data Params**
+  **Required:**
+
+  `id=[integer]`
+
+- **Data Params**
 
   ```json
-      {
-        "message": "really funny", 
-      }
+  {
+    "message": "really funny"
+  }
   ```
 
-* **Success Response:**
+- **Success Response:**
 
-  * **Code:** 201 <br />
+  - **Code:** 201 <br />
     **Content:** `{ id : 36, message: "malo" meme: 122 owner: 15 }`
- 
-* **Error Response:**
 
-  * **Code:** 400 BAD REQUEST <br />
+- **Error Response:**
+
+  - **Code:** 400 BAD REQUEST <br />
     **Content:** `{ error }`
 
-* **Sample Call:**
+- **Sample Call:**
 
   ```javascript
-    TODO
+  TODO;
   ```
-    
 
 ## Rutas
 
 UsersEndpoint:
-Create a user  -  POST        /users/
+Create a user - POST /users/
 
-Get User       -  GET         /users/id
+Get User - GET /users/id
 
 TODO
-Update user    -  PATCH    /users/me/
+Update user - PATCH /users/me/
 
-Delete user     -  DELETE    /users/me/
+Delete user - DELETE /users/me/
 TODO
-
 
 Comments Endpoint:
-Create comment                      -  POST    /comments/:memeID
-Get comments from Meme   -  GET      /comments/memes/:memeID
-Get comments from User      -   GET     /comments/users/me
-
-
-
+Create comment - POST /comments/:memeID
+Get comments from Meme - GET /comments/memes/:memeID
+Get comments from User - GET /comments/users/me
 
 Memes Endpoint:
-Create a meme               -    POST /memes/:memeID
-Get all memes                 - GET  /memes
-Get memes from User   - GET /memes/users/
-
-
+Create a meme - POST /memes/:memeID
+Get all memes - GET /memes
+Get memes from User - GET /memes/users/
 
 ## Data Model Design
 
