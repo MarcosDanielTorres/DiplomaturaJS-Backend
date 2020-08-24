@@ -28,6 +28,9 @@ const memeSchema = new mongoose.Schema(
           'animales',
           'gaming',
           'anime',
+          'funny',
+          'people',
+          'travel'
         ];
         return categoriesAllowed.includes(value);
       },
