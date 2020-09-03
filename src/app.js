@@ -4,10 +4,14 @@ import userRouter from './routers/user';
 import commentRouter from './routers/comment';
 import memeRouter from './routers/meme';
 
+import cors from 'cors';
+
 const app = express();
 const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
+
+app.use(cors());
 
 // ver si hace falta
 app.use(function (req, res, next) {

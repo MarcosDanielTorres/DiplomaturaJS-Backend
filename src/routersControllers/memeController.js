@@ -2,8 +2,12 @@ import Meme from '../models/meme';
 import User from '../models/user';
 import multer from 'multer';
 
+//GET /memes?limit=10&skip=0
 const getAllMemes = async (req, res) => {
-  const memes = await Meme.find();
+  const memes = await Meme.find()
+    .skip(parseInt(req.query.skip))
+    .limit(parseInt(req.query.limit))
+    .sort({ createdAt: 'desc' });
   res.status(200).send(memes);
 };
 
