@@ -8,16 +8,14 @@ const commentSchema = new mongoose.Schema(
       trim: true,
     },
     owner: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       required: true,
-      ref: 'User',
     },
     meme: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: 'Meme',
     },
-
   },
   {
     timestamps: true,

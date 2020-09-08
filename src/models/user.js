@@ -49,11 +49,11 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-userSchema.virtual('comments', {
+/*userSchema.virtual('comments', {
   ref: 'Comment',
   localField: '_id',
   foreignField: 'owner',
-});
+});*/
 
 userSchema.virtual('memes', {
   ref: 'Meme',
