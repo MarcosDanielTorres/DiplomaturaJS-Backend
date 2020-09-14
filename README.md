@@ -332,28 +332,7 @@ Crear un comentario.
   TODO;
   ```
 
-## Rutas
 
-UsersEndpoint:
-Create a user - POST /users/
-
-Get User - GET /users/id
-
-TODO
-Update user - PATCH /users/me/
-
-Delete user - DELETE /users/me/
-TODO
-
-Comments Endpoint:
-Create comment - POST /comments/:memeID
-Get comments from Meme - GET /comments/memes/:memeID
-Get comments from User - GET /comments/users/me
-
-Memes Endpoint:
-Create a meme - POST /memes/:memeID
-Get all memes - GET /memes
-Get memes from User - GET /memes/users/
 
 ## Data Model Design
 
