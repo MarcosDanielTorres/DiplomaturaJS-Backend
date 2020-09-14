@@ -22,7 +22,7 @@
 
     - [**Show User**](#show-user)
     - [**Sign Up**](#sign-up)
-    - [**Sing In**](#sign-in)
+    - [**Sign In**](#sign-in)
 
   - [**Meme Endpoint**](#meme-endpoint)
 
@@ -147,7 +147,7 @@ Crea un usuario.
   
   
   
-### Sing In
+### Sign In
 
 ---
 
