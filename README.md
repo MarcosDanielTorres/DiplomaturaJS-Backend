@@ -178,7 +178,9 @@ Ingresar al sistema.
 - **Success Response:**
 
   - **Code:** 200 <br />
-    **Content:** `{
+    **Content: 
+    ```json
+    {
     "user": {
         "_id": "5f4a90464c88422d349cd743",
         "name": "Leo",
@@ -186,7 +188,8 @@ Ingresar al sistema.
         "__v": 11
     },
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjRhOTA0NjRjODg0MjJkMzQ5Y2Q3NDMiLCJpYXQiOjE2MDAwOTI5ODB9.UPtr8MumAikupax-DfSytHkn9GAy_gJJSnU75-v-POk"
-}`
+  }
+  ```
 
 - **Error Response:**
 
