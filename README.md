@@ -22,6 +22,7 @@
 
     - [**Show User**](#show-user)
     - [**Sign Up**](#sign-up)
+    - [**Sing In**](#sign-in)
 
   - [**Meme Endpoint**](#meme-endpoint)
 
@@ -178,7 +179,7 @@ Ingresar al sistema.
 - **Success Response:**
 
   - **Code:** 200 <br />
-    **Content: 
+    **Content:** 
     ```json
     {
     "user": {
