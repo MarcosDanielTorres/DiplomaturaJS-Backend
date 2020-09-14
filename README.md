@@ -143,6 +143,61 @@ Crea un usuario.
   ```javascript
   TODO;
   ```
+  
+  
+  
+### Sing In
+
+---
+
+Ingresar al sistema.
+
+- **URL**
+
+  /users/login
+
+- **Method:**
+
+  `POST`
+
+- **URL Params**
+
+  **Required:**
+
+  None
+
+- **Data Params**
+
+  ```json
+  {
+    "email": "leox@jsdev.com",
+    "password": "12345678"
+  }
+  ```
+
+- **Success Response:**
+
+  - **Code:** 200 <br />
+    **Content:** `{
+    "user": {
+        "_id": "5f4a90464c88422d349cd743",
+        "name": "Leo",
+        "email": "leox@jsdev.com",
+        "__v": 11
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjRhOTA0NjRjODg0MjJkMzQ5Y2Q3NDMiLCJpYXQiOjE2MDAwOTI5ODB9.UPtr8MumAikupax-DfSytHkn9GAy_gJJSnU75-v-POk"
+}`
+
+- **Error Response:**
+
+  - **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ error }`
+
+- **Sample Call:**
+
+  ```javascript
+  TODO;
+  ```
 
 ## Meme Endpoint
 
