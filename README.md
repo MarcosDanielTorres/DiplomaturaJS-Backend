@@ -30,8 +30,8 @@
 
 ## Introducción
 
-Este proyecto se trata de un red social diseñada para que los usuarios puedan crear sus propios memes, y además escribir comentarios sobre ellos. //TODO: expandir más y linkear al frontend
-
+Este proyecto se trata de un red social diseñada para que los usuarios puedan crear sus propios memes, y además escribir comentarios sobre ellos. Similar a 9GAG.
+**Frontend:** https://github.com/CarolinaVillegas/Diplomatura-Front
 ## Prerrequisitos
 
 - [Node](https://github.com/nodejs/node) >= v12.18.2
