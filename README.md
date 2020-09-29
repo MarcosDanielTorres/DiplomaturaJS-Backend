@@ -32,6 +32,7 @@
      - [**Show Comments from User**](#show-comments-from-user)
      - [**Show Comments from Meme**](#show-comments-from-meme)
      - [**Create Comment**](#create-comment)
+- [**Data Model Design**](#data-model-design)
 ## Introducción
 
 Este proyecto se trata de un red social diseñada para que los usuarios puedan crear sus propios memes, y además escribir comentarios sobre ellos. Similar a 9GAG.
