@@ -25,9 +25,13 @@
     - [**Sign In**](#sign-in)
 
   - [**Meme Endpoint**](#meme-endpoint)
+     - [**Show Memes**](#show-memes)
+     - [**Create Meme**](#create-meme)
 
   - [**Comment Endpoint**](#comment-endpoint)
-
+     - [**Show Comments from User**](#show-comments-from-user)
+     - [**Show Comments from Meme**](#show-comments-from-meme)
+     - [**Create Comment**](#create-comment)
 ## Introducción
 
 Este proyecto se trata de un red social diseñada para que los usuarios puedan crear sus propios memes, y además escribir comentarios sobre ellos. Similar a 9GAG.
@@ -347,7 +351,7 @@ Retorna un json con los comentarios de un meme
   - **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "Comments doesn't exists" }`
 
-### Create Comments
+### Create Comment
 
 ---
 
