@@ -1,49 +1,52 @@
 # DDR - Deprecated Dependencies Reporter
-Basic wrapper around GitHub's API to look for files containing certain words. It exports the results to a .csv format. Given that the CLI is really simple it doesn't use ANY third-party dependencies to keep it as debt-free as possible.
+Basic wrapper around GitHub's API to look for files containing certain words. It exports the results to a .csv format. Given that the CLI is really simple it doesn't use **ANY** third-party dependencies to keep it as debt-free as possible.
 
-It only purpose is to serve as a tool for the SRE team to check what files still use a deprecated package.
+Its only purpose is to serve as a tool for the SRE team to check what files still use a deprecated package.
 
 ## Configuration
-Setup ENV variables
-    - ODR_GH_TOKEN
-    - ODR_USER
+Setup environment variables
+
+    - DDR_GH_TOKEN
 
 
 ## Building and Running
-go build
-./odr
 
+```
+go build
+./ddr -output results.csv
+```
 
 ## Usage
 The program only consists of two flags. Both optional.
-    -    -string: name of the word/s to look for. If a sentence is specified must be enclosed by double-quotes.
-    -    -output: name of the output file
+- -string: name of the word/s to look for. If a sentence is specified, it must be enclosed by double quotes.
+- -output: name of the output file
 
 
 ## Examples
 Only a word:
-./odr -string Logger
+- ./ddr -string Logger
+
 
 If an exact match of a string consisting of many words needs to be searched for. It's necessary to use double quotes as shown below:
-./odr -string "import com.bancar.core.utils.BancarLogger;"
+- ./ddr -string "import com.bancar.core.utils.BancarLogger;"
 
-The CLI does NOT accepts a sentence without double-quotes.
-Please note, the following code is not equivalent to the previous snippet. It doesn't yield the expected result:
-./odr -string import com.bancar.core.utils.BancarLogger;
-It's the same as: ./odr -string import
+The CLI does **NOT** accept a sentence without double quotes.
+Please note, that the following code is not equivalent to the previous snippet. It doesn't yield the expected result:
+./ddr -string import com.bancar.core.utils.BancarLogger;
+It's the same as ./odr -string import
 
 ## Output Format
 The CSV Columns are: 
-name: name of the file that contains the searched word.
-path: path inside the repo
-url: url of the repo
-total_count: number of occurences
+- name: name of the file that contains the searched word.
+- path: path inside the repo
+- url: URL of the repo
+- total_count: number of occurrences
 
 
 ## Possible improvements. TODO:
-Add flag to choose repository name to look into.
-Add flag to search in all the repositories in the entire organization. Will require a different logic for handling GitHub's Rate Limiter.
-Append current date to output name
+- Add a flag to choose a repository name to look into.
+- Add a flag to search all the repositories in the entire organization. Will require a different logic for handling GitHub's Rate Limiter.
+- Append current date to output name
 
 
 
