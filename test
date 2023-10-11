@@ -1,0 +1,126 @@
+module github.com/marcosdanieltorres/go-playground
+
+go 1.21.1
+
+require github.com/google/go-github/v55 v55.0.0
+
+require (
+	github.com/ProtonMail/go-crypto v0.0.0-20230217124315-7d5c6f04bbb8 // indirect
+	github.com/cloudflare/circl v1.3.3 // indirect
+	github.com/google/go-querystring v1.1.0 // indirect
+	github.com/sethvargo/go-retry v0.2.4 // indirect
+	golang.org/x/crypto v0.12.0 // indirect
+	golang.org/x/sys v0.11.0 // indirect
+)
+
+
+
+
+package main
+
+import (
+	"context"
+	"encoding/csv"
+	"flag"
+	"fmt"
+	"github.com/google/go-github/v55/github"
+	"github.com/sethvargo/go-retry"
+	"log"
+	"os"
+	"time"
+)
+
+type Repositories []string
+
+func (i *Repositories) String() string {
+	return fmt.Sprint(*i)
+}
+
+func (i *Repositories) Set(value string) error {
+	*i = append(*i, value)
+	return nil
+}
+
+func main() {
+	token := fmt.Sprint("Bearer " + os.Getenv("DDR_GH_TOKEN"))
+	output := flag.String("output", "search_results.csv", "Output file name")
+	stringToSearch := flag.String("search", "", "String to search in the files")
+	var repositories Repositories
+	flag.Var(&repositories, "repo", "Repositories to search in")
+
+	flag.Parse()
+	fmt.Println(repositories)
+	if len(repositories) == 0 {
+		flag.Usage()
+		log.Fatal("You must specify at least one repository to search in")
+		os.Exit(1)
+	}
+
+	if len(*stringToSearch) == 0 {
+		flag.Usage()
+		log.Fatal("String to search cannot be empty")
+		os.Exit(1)
+	}
+
+	file, err := os.Create(*output)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	w := csv.NewWriter(file)
+	w.Write([]string{"Name", "Path", "Repository", "Input String", "Total"})
+
+	client := github.NewClient(nil).WithAuthToken(token)
+
+	for _, repo := range repositories {
+		search(client, w, stringToSearch, repo)
+		w.Flush()
+	}
+
+	if err := w.Error(); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func search(client *github.Client, w *csv.Writer, stringToSearch *string, repos string) {
+	query := fmt.Sprintf("repo:Bancar/%s in:file \"%s\"", repos, *stringToSearch)
+	fmt.Println(query)
+	result, response, err := client.Search.Code(context.Background(), query,
+		&github.SearchOptions{ListOptions: github.ListOptions{Page: 1}})
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var allResults []*github.CodeResult
+	allResults = append(allResults, result.CodeResults...)
+	for page := 2; page <= response.LastPage; page++ {
+		if err := retry.Exponential(context.Background(), 5*time.Second, func(ctx context.Context) error {
+			result, _, err := client.Search.Code(context.Background(), query,
+				&github.SearchOptions{ListOptions: github.ListOptions{Page: page}})
+			if err != nil {
+				fmt.Println("error:", err)
+				fmt.Println("Current page: ", page, " Total pages: ", )
+				fmt.Println("Rate limit reached. Retrying...")
+
+				return retry.RetryableError(err)
+			}
+
+			allResults = append(allResults, result.CodeResults...)
+			return nil
+
+		}); err != nil {
+			log.Fatal(err)
+		}
+	}
+
+	w.Write([]string{"", "", "", *stringToSearch, fmt.Sprint(len(allResults))})
+
+	for _, record := range allResults {
+		if err := w.Write([]string{record.GetName(), record.GetPath(), record.GetRepository().GetHTMLURL()}); err != nil {
+			log.Fatalln("error writing record to csv:", err)
+		}
+	}
+
+}
